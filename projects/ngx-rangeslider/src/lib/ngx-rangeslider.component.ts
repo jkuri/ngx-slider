@@ -95,7 +95,7 @@ export class NgxRangesliderComponent implements ControlValueAccessor, OnInit, On
       this.renderer.setStyle(placeholder, 'font-weight', this.opts.dashMarkFontWeight);
       this.renderer.setStyle(placeholder, 'user-select', 'none');
       this.renderer.appendChild(this.gridValues, placeholder);
-      this.renderer.setStyle(placeholder, 'top', `${top - (placeholder.clientHeight + 5)}px`);
+      this.renderer.setStyle(placeholder, 'top', `${top - (placeholder.clientHeight + this.opts.dashMarkPadding)}px`);
       this.renderer.setStyle(placeholder, 'left', `${left - placeholder.clientWidth / 2}px`);
 
       return { v, el, placeholder, left };

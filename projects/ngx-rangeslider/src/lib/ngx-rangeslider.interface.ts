@@ -12,6 +12,7 @@ export interface RangeSliderOptions {
   dashMarkFont?: string;
   dashMarkFontSize?: number;
   dashMarkFontWeight?: number;
+  dashMarkPadding?: number;
   barColor?: string;
   barWidth?: number;
   barHeight?: number;
@@ -38,6 +39,7 @@ export function defaultOptions(): RangeSliderOptions {
     dashMarkFont: 'sans-serif',
     dashMarkFontSize: 10,
     dashMarkFontWeight: 600,
+    dashMarkPadding: 8,
     barColor: '#5362ac',
     barWidth: 10,
     barHeight: 26,
