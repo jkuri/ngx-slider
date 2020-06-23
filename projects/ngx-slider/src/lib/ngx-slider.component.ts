@@ -10,26 +10,26 @@ import {
   HostListener
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import { RangeSliderOptions, defaultOptions, RangeSliderValue } from './ngx-rangeslider.interface';
+import { SliderOptions, defaultOptions, SliderValue } from './ngx-slider.interface';
 import { fromEvent, Subscription, merge } from 'rxjs';
 import { mergeMap, map, takeUntil } from 'rxjs/operators';
 
 @Component({
-  selector: 'ngx-rangeslider',
-  templateUrl: './ngx-rangeslider.component.html',
-  styleUrls: ['./ngx-rangeslider.component.sass'],
-  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: NgxRangesliderComponent, multi: true }]
+  selector: 'ngx-slider',
+  templateUrl: './ngx-slider.component.html',
+  styleUrls: ['./ngx-slider.component.sass'],
+  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: NgxSliderComponent, multi: true }]
 })
-export class NgxRangesliderComponent implements ControlValueAccessor, OnInit, OnChanges, OnDestroy {
-  @Input() options: RangeSliderOptions;
-  @Input() values: RangeSliderValue[] = [];
+export class NgxSliderComponent implements ControlValueAccessor, OnInit, OnChanges, OnDestroy {
+  @Input() options: SliderOptions;
+  @Input() values: SliderValue[] = [];
 
   innerValue: number;
-  opts: RangeSliderOptions;
+  opts: SliderOptions;
   el: HTMLElement;
   grid: HTMLElement;
   gridValues: HTMLElement;
-  dashes: { v: RangeSliderValue; el: HTMLElement; placeholder: HTMLElement; left: number }[];
+  dashes: { v: SliderValue; el: HTMLElement; placeholder: HTMLElement; left: number }[];
   bar: HTMLElement;
   sub = new Subscription();
 
@@ -223,7 +223,7 @@ export class NgxRangesliderComponent implements ControlValueAccessor, OnInit, On
     this.sub.add(dragEndSub);
   }
 
-  findClosest(left: number): { v: RangeSliderValue; el: HTMLElement; placeholder: HTMLElement; left: number } {
+  findClosest(left: number): { v: SliderValue; el: HTMLElement; placeholder: HTMLElement; left: number } {
     return this.dashes.reduce((prev, curr) => (Math.abs(curr.left - left) < Math.abs(prev.left - left) ? curr : prev));
   }
 
@@ -257,7 +257,7 @@ export class NgxRangesliderComponent implements ControlValueAccessor, OnInit, On
     this.onTouchedCallback = fn;
   }
 
-  @HostListener('window:resize', ['$event']) onResize() {
+  @HostListener('window:resize', []) onResize() {
     this.destroy();
     this.init();
     this.initDrag();

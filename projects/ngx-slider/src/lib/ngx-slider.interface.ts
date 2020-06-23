@@ -1,4 +1,4 @@
-export interface RangeSliderOptions {
+export interface SliderOptions {
   width?: string;
   gridHeight?: number;
   gridColor?: string;
@@ -19,12 +19,12 @@ export interface RangeSliderOptions {
   barBorderRadius?: number;
 }
 
-export interface RangeSliderValue {
+export interface SliderValue {
   value: number;
   placeholder: string | number;
 }
 
-export function defaultOptions(): RangeSliderOptions {
+export function defaultOptions(): SliderOptions {
   return {
     width: '100%',
     gridHeight: 10,

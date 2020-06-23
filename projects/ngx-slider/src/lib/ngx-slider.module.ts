@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { NgxRangesliderComponent } from './ngx-rangeslider.component';
+import { NgxSliderComponent } from './ngx-slider.component';
 
 @NgModule({
-  declarations: [NgxRangesliderComponent],
+  declarations: [NgxSliderComponent],
   imports: [CommonModule, FormsModule],
-  exports: [NgxRangesliderComponent]
+  exports: [NgxSliderComponent]
 })
-export class NgxRangesliderModule {}
+export class NgxSliderModule {}

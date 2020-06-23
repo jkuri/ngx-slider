@@ -3,36 +3,36 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-rangeslider": {
+    "ngx-slider": {
       "projectType": "library",
-      "root": "projects/ngx-rangeslider",
-      "sourceRoot": "projects/ngx-rangeslider/src",
+      "root": "projects/ngx-slider",
+      "sourceRoot": "projects/ngx-slider/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/ngx-rangeslider/tsconfig.lib.json",
-            "project": "projects/ngx-rangeslider/ng-package.json"
+            "tsConfig": "projects/ngx-slider/tsconfig.lib.json",
+            "project": "projects/ngx-slider/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/ngx-rangeslider/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ngx-slider/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ngx-rangeslider/src/test.ts",
-            "tsConfig": "projects/ngx-rangeslider/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-rangeslider/karma.conf.js"
+            "main": "projects/ngx-slider/src/test.ts",
+            "tsConfig": "projects/ngx-slider/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-slider/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["projects/ngx-rangeslider/tsconfig.lib.json", "projects/ngx-rangeslider/tsconfig.spec.json"],
+            "tsConfig": ["projects/ngx-slider/tsconfig.lib.json", "projects/ngx-slider/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**"]
           }
         }
@@ -148,5 +148,5 @@
       }
     }
   },
-  "defaultProject": "ngx-rangeslider"
+  "defaultProject": "ngx-slider"
 }

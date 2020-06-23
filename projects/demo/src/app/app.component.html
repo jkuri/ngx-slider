@@ -6,11 +6,10 @@
           <span [style.font-size]="fontSize + 'px'" [style.font-weight]="fontWeight">Font Size: {{ fontSize }}px</span>
         </div>
         <div class="column is-6 is-offset-3 default-options-container">
-          <ngx-rangeslider [(ngModel)]="fontSize" [values]="fontSizeValues"></ngx-rangeslider>
+          <ngx-slider [(ngModel)]="fontSize" [values]="fontSizeValues"></ngx-slider>
         </div>
         <div class="column is-6 is-offset-3 dark-options-container">
-          <ngx-rangeslider [(ngModel)]="fontWeight" [values]="fontWeightValues" [options]="darkOptions">
-          </ngx-rangeslider>
+          <ngx-slider [(ngModel)]="fontWeight" [values]="fontWeightValues" [options]="darkOptions"></ngx-slider>
         </div>
       </div>
     </div>

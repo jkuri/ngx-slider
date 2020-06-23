@@ -13,7 +13,7 @@
     "target": "es2015",
     "lib": ["es2018", "dom"],
     "paths": {
-      "ngx-rangeslider": ["projects/ngx-rangeslider/src/public-api"]
+      "@jkuri/ngx-slider": ["projects/ngx-slider/src/public-api"]
     }
   },
   "angularCompilerOptions": {

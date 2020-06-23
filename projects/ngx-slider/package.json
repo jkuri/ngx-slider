@@ -1,0 +1,31 @@
+{
+  "name": "@jkuri/ngx-slider",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkuri/ngx-slider.git"
+  },
+  "authors": [
+    "Jan Kuri <jkuri88@gmail.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jkuri/ngx-slider/issues"
+  },
+  "keywords": [
+    "slider",
+    "angular",
+    "range",
+    "range-slider",
+    "ng",
+    "ui"
+  ],
+  "peerDependencies": {
+    "@angular/common": "^9.1.11",
+    "@angular/core": "^9.1.11",
+    "@angular/forms": "^9.1.11"
+  },
+  "dependencies": {
+    "tslib": "^1.10.0"
+  }
+}

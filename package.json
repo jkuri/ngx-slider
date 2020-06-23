@@ -1,10 +1,11 @@
 {
-  "name": "ngx-slider",
+  "name": "@jkuri/ngx-slider",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve demo --open --port 4220",
-    "build": "ng build ngx-rangeslider --prod",
+    "build": "ng build ngx-slider --prod",
+    "prebuild": "cp README.md ./projects/ngx-slider/README.md",
     "build:demo": "ng build demo --prod",
     "test": "ng test",
     "lint": "ng lint",

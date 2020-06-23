@@ -2,11 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { NgxRangesliderModule } from 'ngx-rangeslider';
+import { NgxSliderModule } from '@jkuri/ngx-slider';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, FormsModule, NgxRangesliderModule],
+  imports: [BrowserModule, FormsModule, NgxSliderModule],
   providers: [],
   bootstrap: [AppComponent]
 })
