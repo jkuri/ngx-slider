@@ -1,4 +1,14 @@
-import { Component, OnInit, ElementRef, Renderer2, Input, OnChanges, SimpleChanges, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  Renderer2,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  OnDestroy,
+  HostListener
+} from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { RangeSliderOptions, defaultOptions, RangeSliderValue } from './ngx-rangeslider.interface';
 import { fromEvent, Subscription, merge } from 'rxjs';
@@ -47,18 +57,19 @@ export class NgxRangesliderComponent implements ControlValueAccessor, OnInit, On
       this.el = this.elementRef.nativeElement;
       this.grid = this.el.querySelector('.rangeslider-grid');
       this.gridValues = this.el.querySelector('.rangeslider-grid-values');
-      this.setStyles();
+      this.init();
       this.initDrag();
     }
   }
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
+    this.destroy();
   }
 
   draw(): void {}
 
-  setStyles(): void {
+  init(): void {
     this.renderer.setStyle(this.grid, 'width', this.opts.width);
     this.renderer.setStyle(this.grid, 'height', `${this.opts.gridHeight}px`);
     this.renderer.setStyle(this.grid, 'background', this.opts.gridColor);
@@ -192,6 +203,10 @@ export class NgxRangesliderComponent implements ControlValueAccessor, OnInit, On
         const current = this.dashes.find(d => d.v.value === this.value);
         this.renderer.setStyle(current.placeholder, 'color', this.opts.dashMarkSelectedColor);
       }
+
+      if (left < min || left > max) {
+        this.setBarPosition();
+      }
     });
 
     const dragEndSub = merge(...[mouseup, touchend]).subscribe(() => {
@@ -210,6 +225,15 @@ export class NgxRangesliderComponent implements ControlValueAccessor, OnInit, On
 
   findClosest(left: number): { v: RangeSliderValue; el: HTMLElement; placeholder: HTMLElement; left: number } {
     return this.dashes.reduce((prev, curr) => (Math.abs(curr.left - left) < Math.abs(prev.left - left) ? curr : prev));
+  }
+
+  destroy(): void {
+    this.dashes.forEach(d => {
+      this.gridValues.removeChild(d.el);
+      this.gridValues.removeChild(d.placeholder);
+    });
+    this.dashes = [];
+    this.gridValues.removeChild(this.bar);
   }
 
   preventDefaultEvent(e: MouseEvent): void {
@@ -231,5 +255,11 @@ export class NgxRangesliderComponent implements ControlValueAccessor, OnInit, On
 
   registerOnTouched(fn: any) {
     this.onTouchedCallback = fn;
+  }
+
+  @HostListener('window:resize', ['$event']) onResize() {
+    this.destroy();
+    this.init();
+    this.initDrag();
   }
 }
