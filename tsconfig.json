@@ -11,15 +11,9 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "lib": ["es2018", "dom"],
     "paths": {
-      "ngx-rangeslider": [
-        "dist/ngx-rangeslider/ngx-rangeslider",
-        "dist/ngx-rangeslider"
-      ]
+      "ngx-rangeslider": ["projects/ngx-rangeslider/src/public-api"]
     }
   },
   "angularCompilerOptions": {
