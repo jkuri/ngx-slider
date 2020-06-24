@@ -59,6 +59,7 @@ export class NgxSliderComponent implements ControlValueAccessor, OnInit, OnChang
       this.gridValues = this.el.querySelector('.rangeslider-grid-values');
       this.init();
       this.initDrag();
+      this.initClick();
     }
   }
 
@@ -146,6 +147,23 @@ export class NgxSliderComponent implements ControlValueAccessor, OnInit, OnChang
     this.dashes.forEach(d => this.renderer.setStyle(d.placeholder, 'color', this.opts.dashMarkColor));
     const current = this.dashes.find(d => d.v.value === value);
     this.renderer.setStyle(current.placeholder, 'color', this.opts.dashMarkSelectedColor);
+  }
+
+  initClick(): void {
+    const sub = fromEvent(this.gridValues, 'click')
+      .pipe(
+        map((e: MouseEvent) => {
+          const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+          return e.clientX - rect.left;
+        }),
+        map(x => this.findClosest(x))
+      )
+      .subscribe(v => {
+        this.value = v.v.value;
+        this.setBarPosition();
+      });
+
+    this.sub.add(sub);
   }
 
   initDrag(): void {
