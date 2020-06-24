@@ -2,7 +2,7 @@
 
 Angular Range Slider as seen on Discord.
 
-[Demo @ codesandbox.io](https://codesandbox.io/s/jkuringx-slider-demo-d0k6h?file=/src/app/app.component.ts)
+[Demo](https://codesandbox.io/s/jkuringx-slider-demo-d0k6h?file=/src/app/app.component.ts)
 
 ## Installation
 
